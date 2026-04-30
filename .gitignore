@@ -1,0 +1,9 @@
+.venv313/
+__pycache__/
+*.pyc
+
+# Runtime artifacts
+data/
+output/
+saved_model/
+sample_test_image.jpg
