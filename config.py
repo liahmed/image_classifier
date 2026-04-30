@@ -5,8 +5,10 @@ from pathlib import Path
 
 # Training hyperparameters
 BATCH_SIZE = 64
-EPOCHS = 30
+EPOCHS = 50
 LEARNING_RATE = 0.001
+WEIGHT_DECAY = 1e-4
+LABEL_SMOOTHING = 0.1
 VALIDATION_SPLIT = 0.1
 RANDOM_SEED = 42
 

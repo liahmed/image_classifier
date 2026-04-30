@@ -7,3 +7,6 @@ data/
 output/
 saved_model/
 sample_test_image.jpg
+web_uploads/
+web_annotated/
+static/generated/

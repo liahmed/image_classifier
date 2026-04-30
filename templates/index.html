@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Object Detection and Segmentation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1>Object Detection + Segmentation</h1>
+    <p class="subtext">Upload an image to detect objects with bounding boxes, labels, and segmentation masks.</p>
+
+    <form method="post" enctype="multipart/form-data" class="card">
+      <label for="image">Choose image</label>
+      <input id="image" name="image" type="file" accept="image/*" required>
+      <button type="submit">Detect Objects</button>
+    </form>
+
+    {% if error %}
+      <section class="card error">{{ error }}</section>
+    {% endif %}
+
+    {% if detections %}
+      <section class="card">
+        <h2>Detected Objects</h2>
+        {% if detections|length > 0 %}
+          <ol>
+            {% for label, confidence in detections %}
+              <li>{{ label }} - {{ "%.1f"|format(confidence) }}%</li>
+            {% endfor %}
+          </ol>
+        {% else %}
+          <p>No objects detected above confidence threshold.</p>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if annotated_url %}
+      <section class="card">
+        <h2>Annotated Output</h2>
+        <img src="{{ annotated_url }}" alt="Annotated prediction output" class="result-image">
+      </section>
+    {% endif %}
+  </main>
+</body>
+</html>

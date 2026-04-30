@@ -22,6 +22,11 @@ image_classifier/
 │   └── evaluator.py
 ├── train.py
 ├── predict.py
+├── web_app.py
+├── templates/
+│   └── index.html
+├── static/
+│   └── style.css
 ├── config.py
 ├── requirements.txt
 └── README.md
@@ -70,6 +75,26 @@ Top-3 predictions:
 2. truck — 6.2%
 3. ship — 1.8%
 ```
+
+## Frontend (Detection + Segmentation)
+
+Run:
+
+```bash
+python web_app.py
+```
+
+Open in browser:
+
+```text
+http://127.0.0.1:5000
+```
+
+What it does:
+- Uploads your image from the browser.
+- Detects objects with a pretrained segmentation model.
+- Draws bounding boxes, class labels, and segmentation masks.
+- Shows detected object labels with confidence scores.
 
 ## Sample Output Screenshots
 
